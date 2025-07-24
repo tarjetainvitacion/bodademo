@@ -172,6 +172,13 @@ a {
 }
 
 /* Audio Player */
+.audio-player-container {
+  position: fixed; /* Fija la posición */
+  bottom: 1rem; /* 16px desde abajo */
+  right: 1rem; /* 16px desde la derecha */
+  z-index: 100;
+}
+
 .play-pause-button {
   width: 56px;
   height: 56px;
