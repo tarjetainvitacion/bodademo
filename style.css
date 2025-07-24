@@ -14,9 +14,15 @@
   --color-itinerary-border: #d9d0c0; /* Color del borde del itinerario, similar al beige claro */
 }
 
+/* Asegura que html y body ocupen el 100% del alto y no tengan márgenes */
+html,
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
+}
+
+body {
   font-family: "Lato", sans-serif;
   color: var(--color-text-medium);
   background-color: var(--color-white);
