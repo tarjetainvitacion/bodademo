@@ -230,26 +230,47 @@ a {
   font-family: "Cormorant Garamond", serif;
 }
 
+.countdown-timer-outside {
+  /* Asegura que los elementos se envuelvan en pantallas pequeñas */
+  flex-wrap: wrap;
+  /* Ajusta el espacio entre elementos para que sea responsivo */
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+.countdown-timer-outside .countdown-item {
+  /* Permite que los elementos flex se encojan más allá de su contenido */
+  min-width: 0;
+  /* Asegura que el texto dentro del elemento no cause desbordamiento */
+  word-break: break-word;
+  /* Centra el contenido de cada item */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .countdown-timer-outside .countdown-item span:first-child {
-  font-size: clamp(2.5rem, 10vw, 5rem); /* Responsive numbers */
+  font-size: clamp(2rem, 8vw, 5rem); /* Responsive numbers: min 2rem, preferred 8vw, max 5rem */
   font-weight: 300;
   color: var(--color-text-dark); /* Color de texto oscuro */
   font-family: "Lato", sans-serif;
+  line-height: 1; /* Ajusta la altura de línea para evitar espacio extra */
 }
 
 .countdown-timer-outside .countdown-item span:last-child {
-  font-size: clamp(0.6rem, 2.5vw, 0.9rem); /* Responsive labels */
+  font-size: clamp(0.5rem, 2vw, 0.9rem); /* Responsive labels: min 0.5rem, preferred 2vw, max 0.9rem */
   text-transform: uppercase;
   color: var(--color-text-light); /* Color de texto más claro */
   margin-top: 0.25rem;
   font-family: "Lato", sans-serif;
+  line-height: 1; /* Ajusta la altura de línea */
 }
 
 .countdown-timer-outside .countdown-separator {
-  font-size: clamp(2.5rem, 10vw, 5rem); /* Responsive separator */
+  font-size: clamp(2rem, 8vw, 5rem); /* Responsive separator: min 2rem, preferred 8vw, max 5rem */
   font-weight: 300;
   color: var(--color-text-dark); /* Color de texto oscuro */
   font-family: "Lato", sans-serif;
+  line-height: 1; /* Ajusta la altura de línea */
 }
 
 /* Image Carousel Section */
