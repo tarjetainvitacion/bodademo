@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pamela & Emanuel - Nuestra Boda</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Lucide Icons CDN (still needed for carousel arrows and modal close) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <img src="public/images/pe.png" alt="" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+        <main class="hero-content">
+            <div class="names">
+                <h1></h1>
+            </div>
+        </main>
+        <div class="audio-player-container">
+            <audio id="background-music" loop preload="auto">
+                <source src="public/audio/wedding-music.mp3" type="audio/mpeg">
+                Tu navegador no admite la reproducción de audio.
+            </audio>
+            <button id="play-pause-button" class="play-pause-button" aria-label="Reproducir/Pausar música">
+                <i data-lucide="play" class="icon-play"></i>
+                <i data-lucide="pause" class="icon-pause hidden"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Countdown Section (Moved outside hero) -->
+    <section class="countdown-outside-section">
+        <p class="countdown-title-outside">¡NOS CASAMOS!</p>
+        <div class="countdown-timer-outside" id="countdown-timer">
+            <!-- Countdown will be rendered here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Image Carousel Section -->
+    <section class="image-carousel-section">
+        <div class="carousel-wrapper">
+            <div class="carousel-images" id="carousel-images">
+                <img src="public/images/1.jpg" alt="" class="carousel-image active">
+                <img src="public/images/2.jpg" alt="" class="carousel-image">
+                <img src="public/images/3.jpg" alt="" class="carousel-image">
+                <img src="public/images/4.jpg" alt="" class="carousel-image">
+                <img src="public/images/5.jpg" alt="" class="carousel-image">
+                <img src="public/images/6.jpg" alt="" class="carousel-image">
+                <img src="public/images/7.jpg" alt="" class="carousel-image">
+            </div>
+            <button class="carousel-button prev" id="carousel-prev" aria-label="Imagen anterior">
+                <i data-lucide="chevron-left"></i>
+            </button>
+            <button class="carousel-button next" id="carousel-next" aria-label="Siguiente imagen">
+                <i data-lucide="chevron-right"></i>
+            </button>
+            <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+    </section>
+
+    <!-- Event Details Section -->
+    <section class="event-details-section">
+        <div class="event-detail">
+            <i class="fa-solid fa-calendar-days event-icon"></i>
+            <h2>¿CUÁNDO?</h2>
+            <p>18 DE SEPTIEMBRE 2025</p>
+        </div>
+        <div class="event-detail">
+            <i class="fa-solid fa-location-dot event-icon"></i>
+            <h2>¿DÓNDE?</h2>
+            <p>Parroquia San Carlos Borromeo</p>
+            <a href="https://maps.app.goo.gl/H8XXgeDhjUJEvkU48" target="_blank" rel="noopener noreferrer" class="button outline">VER MAPA</a>
+        </div>
+        <div class="itinerary-container">
+            <div class="itinerary-header">
+                <hr>
+                <h2>PROGRAMA DEL EVENTO</h2>
+                <hr>
+            </div>
+            <div class="itinerary-event">
+                <i class="fa-solid fa-church itinerary-icon"></i>
+                <h3>CEREMONIA</h3>
+                <p>20:00 HS</p>
+            </div>
+            <hr class="itinerary-separator">
+            <div class="itinerary-event">
+                <i class="fa-solid fa-wine-glass itinerary-icon"></i>
+                <h3>RECEPCIÓN</h3>
+                <p>21:00 HS</p>
+            </div>
+            <hr class="itinerary-separator">
+            <div class="itinerary-event">
+                <i class="fa-solid fa-utensils itinerary-icon"></i>
+                <h3>CENA</h3>
+                <p>22:00 HS</p>
+            </div>
+            <hr class="itinerary-separator">
+            <div class="itinerary-event">
+                <i class="fa-solid fa-globe itinerary-icon"></i>
+                <h3>FIESTA</h3>
+                <p>00:00 HS</p>
+            </div>
+            <hr class="itinerary-separator">
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="quote-content">
+            <div class="quote-line"><hr></div>
+            <p class="quote-text">NO ES SUERTE, ES EL MOMENTO PERFECTO</p>
+            <p class="quote-text">CON LA PERSONA CORRECTA.</p>
+            <div class="quote-line"><hr></div>
+        </div>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section class="dress-code-section">
+        <i class="fa-solid fa-gem dress-code-icon"></i>
+        <h2>DRESS CODE</h2>
+        <p class="quote-text">ELEGANTE</p>
+        <button class="button outline hidden">CONSEJOS</button>
+    </section>
+
+    <!-- Honeymoon Section -->
+    <section class="honeymoon-section">
+        <div class="honeymoon-icon-wrapper">
+            <i class="fa-solid fa-plane honeymoon-icon"></i>
+            <i class="fa-solid fa-heart honeymoon-heart-icon"></i>
+        </div>
+        <h2>LUNA DE MIEL</h2>
+        <p class="quote-text">EL MEJOR OBSEQUIO: AYUDARNOS A CREAR</p>
+            <p class="quote-text">NUEVOS RECUERDOS EN NUESTRA LUNA DE MIEL.</p>
+        <button class="button outline" id="open-honeymoon-modal">PARTICIPAR</button>
+    </section>
+
+    <!-- Image: Couple Kissing -->
+    <section class="image-section">
+        <img src="public/images/casal-2630022_1280.jpg" alt="" class="full-width-image">
+    </section>
+
+    <!-- RSVP Form Section -->
+    <section class="rsvp-form-section">
+        <div class="rsvp-form-container">
+            <i class="fa-solid fa-envelope rsvp-icon"></i>
+            <h2>CONFIRMANOS TU ASISTENCIA</h2>
+            <p class="rsvp-subtitle">ANTES DEL 1 DE SEPTIEMBRE</p>
+          
+
+            <form id="rsvpForm">
+                <div class="form-group">
+                    <label for="num-guests">Confirmar cuántas personas van</label>
+                    <select id="num-guests" name="numGuests">
+                        <option value="1">1 persona</option>
+                        <option value="2">2 personas</option>
+                        <option value="3">3 personas</option>
+                        <option value="4">4 personas</option>
+                        <option value="5">5 personas</option>
+                        <option value="0">No asistiré</option>
+                    </select>
+                </div>
+
+                <div id="guest-fields-container">
+                    <!-- Guest fields will be dynamically added here -->
+                </div>
+
+                <div class="form-group">
+                    <label for="music-recommendation">¿Que música querés escuchar en la fiesta?</label>
+                    <textarea id="music-recommendation" name="musicRecommendation" placeholder="Escribí acá las canciones"></textarea>
+                </div>
+
+                <button type="submit" class="button primary">Confirmar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Image: Couple Holding Up -->
+    <section class="image-section">
+        <img src="public/images/couple-1868866_1280.jpg" alt="" class="full-width-image">
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <img src="public/images/logo.png" alt="logo">
+        <div class="social-icons">
+            <a href="https://www.instagram.com/tarjetainvitacion/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/+5492314477062" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
+        <p class="copyright">© 2025 Tarjeta Invitación. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Honeymoon Modal -->
+    <div id="honeymoon-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-button" aria-label="Cerrar">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-body">
+                <div class="honeymoon-icon-wrapper modal-icon">
+                    <i class="fa-solid fa-plane"></i>
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <h2>LUNA DE MIEL</h2>
+                <p class="modal-description">SU CARIÑO ES SUFICIENTE, PERO SI DESEAN ACOMPAÑARNOS EN ESTA NUEVA ETAPA, PUEDEN SUMAR SU REGALO A NUESTRA LUNA DE MIEL.</p>
+                <div class="account-info">
+                    <p class="account-title">CUENTA</p>
+                    <p class="account-alias">ALIAS: EMANUEL.MAIN</p>
+                </div>
+                <p class="modal-thanks">¡MUCHAS GRACIAS POR SU APOYO!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons after the DOM is loaded (only for remaining Lucide icons)
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,979 @@
+/* Basic Reset & Global Styles */
+:root {
+  --color-primary-bg: #eae4d9; /* Beige claro */
+  --color-text-dark: #333;
+  --color-text-medium: #555;
+  --color-text-light: #777;
+  --color-white: #fff;
+  --color-gray-border: #ccc;
+  --color-form-bg: #f5f5f5;
+  --color-overlay: rgba(0, 0, 0, 0.3);
+  --color-modal-bg: #3a3a3a; /* Fondo oscuro del modal */
+  --color-modal-content-bg: #eae4d9; /* Fondo del contenido del modal */
+  --color-modal-border: #fff; /* Borde blanco del modal */
+  --color-itinerary-border: #d9d0c0; /* Color del borde del itinerario, similar al beige claro */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  color: var(--color-text-medium);
+  background-color: var(--color-white);
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--color-text-medium);
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+h2 {
+  font-size: 1.8em;
+}
+h3 {
+  font-size: 1.4em;
+}
+
+p {
+  font-family: "Lato", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Utility Classes */
+.hidden {
+  display: none !important; /* Aseguramos que se oculte */
+}
+.text-center {
+  text-align: center;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.max-w-xl {
+  max-width: 600px;
+}
+.max-w-3xl {
+  max-width: 800px;
+}
+.max-w-4xl {
+  max-width: 960px;
+}
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.mb-8 {
+  margin-bottom: 2rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.space-y-4 > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.space-y-6 > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+.space-y-12 > *:not(:last-child) {
+  margin-bottom: 3rem;
+}
+.space-x-4 > *:not(:last-child) {
+  margin-right: 1rem;
+}
+.space-x-6 > *:not(:last-child) {
+  margin-right: 1.5rem;
+}
+
+/* Buttons */
+.button {
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.button.outline {
+  background-color: transparent;
+  border: 1px solid var(--color-gray-border);
+  color: var(--color-text-light);
+}
+
+.button.outline:hover {
+  background-color: #f0f0f0;
+}
+
+.button.primary {
+  background-color: var(--color-primary-bg);
+  border: 1px solid var(--color-primary-bg);
+  color: var(--color-text-medium);
+  width: 100%;
+}
+
+.button.primary:hover {
+  background-color: #d9d0c0;
+  border-color: #d9d0c0;
+}
+
+/* Animations (only for Lucide icons that remain) */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+/* Font Awesome Icon Sizing and Coloring */
+.event-icon,
+.dress-code-icon,
+.rsvp-icon,
+.honeymoon-icon,
+.honeymoon-heart-icon,
+.social-icons .fa-brands,
+.social-icons .fa-solid,
+.itinerary-icon {
+  color: #888; /* Default icon color */
+}
+
+.event-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 40px; /* Set font-size for Font Awesome icons */
+  margin-bottom: 0.5rem;
+}
+
+.dress-code-icon {
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+  margin-bottom: 1rem;
+}
+
+.honeymoon-icon {
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+}
+
+.honeymoon-heart-icon {
+  position: absolute;
+  bottom: -0.25rem;
+  right: -0.25rem;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+}
+
+.rsvp-icon {
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+  margin-bottom: 1rem;
+}
+
+.social-icons .fa-brands,
+.social-icons .fa-solid {
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+  color: var(--color-text-medium);
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover .fa-brands,
+.social-icons a:hover .fa-solid {
+  color: var(--color-text-dark);
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-overlay);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to top */
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.names {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.names h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--color-white);
+  text-align: left;
+  margin: 0;
+}
+
+/* Countdown Section (Moved outside hero) */
+.countdown-outside-section {
+  background-color: var(--color-primary-bg); /* Beige claro */
+  padding: 3rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.countdown-title-outside {
+  font-size: 2.2em;
+  font-weight: 300;
+  color: var(--color-text-medium); /* Color de texto oscuro */
+  margin-bottom: 1rem;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.countdown-timer-outside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.countdown-timer-outside .countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-timer-outside .countdown-item span:first-child {
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--color-text-dark); /* Color de texto oscuro */
+  font-family: "Lato", sans-serif;
+}
+
+.countdown-timer-outside .countdown-item span:last-child {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--color-text-light); /* Color de texto más claro */
+  margin-top: 0.25rem;
+  font-family: "Lato", sans-serif;
+}
+
+.countdown-timer-outside .countdown-separator {
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--color-text-dark); /* Color de texto oscuro */
+  font-family: "Lato", sans-serif;
+}
+
+/* Audio Player */
+.audio-player-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+}
+
+.play-pause-button {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.play-pause-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.play-pause-button svg {
+  width: 24px;
+  height: 24px;
+  color: #4a4a4a;
+}
+
+/* Image Carousel Section */
+.image-carousel-section {
+  padding: 4rem 1rem;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.carousel-wrapper {
+  position: relative; /* Important for positioning children absolutely */
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-images {
+  display: flex;
+  width: 100%;
+  height: 400px; /* Default height */
+  position: relative;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+}
+
+.carousel-image.active {
+  opacity: 1;
+}
+
+.carousel-button {
+  position: absolute; /* Position relative to .carousel-wrapper */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 20;
+}
+
+.carousel-button:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.carousel-button svg {
+  width: 24px;
+  height: 24px;
+  color: #4a4a4a;
+}
+
+.carousel-button.prev {
+  left: 1rem; /* Positions the previous button on the left */
+}
+
+.carousel-button.next {
+  right: 1rem; /* Positions the next button on the right */
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 20;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-dot.active {
+  background-color: var(--color-white);
+}
+
+/* Event Details Section */
+.event-details-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  text-align: center;
+  background-color: var(--color-white);
+}
+
+.event-details-section > div {
+  margin-bottom: 3rem;
+}
+
+.event-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.event-detail h2 {
+  font-size: 1.25em;
+  font-weight: 600;
+  color: var(--color-text-medium);
+  margin-bottom: 0.5rem;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.event-detail p {
+  font-size: 1.1em;
+  color: var(--color-text-light);
+}
+
+/* Itinerary Container */
+.itinerary-container {
+  border: 1px solid var(--color-itinerary-border); /* Light golden border */
+  padding: 2rem 1.5rem;
+  max-width: 400px; /* Adjust as needed to match screenshot width */
+  margin: 3rem auto 0 auto; /* Center and add top margin */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.itinerary-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Ensure hr spans full width */
+  margin-bottom: 2rem;
+}
+
+.itinerary-header hr {
+  flex-grow: 1;
+  border: none;
+  border-top: 1px solid var(--color-gray-border);
+  position: absolute;
+  width: 100%;
+}
+
+.itinerary-header h2 {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-white);
+  padding: 0 1rem;
+  font-size: 1.25em;
+  font-weight: 600;
+  color: var(--color-text-medium);
+  font-family: "Cormorant Garamond", serif;
+}
+
+.itinerary-event {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem; /* Space between event and separator */
+  width: 100%; /* Ensure content is centered within container */
+}
+
+.itinerary-icon {
+  width: 40px; /* Size for itinerary icons */
+  height: 40px;
+  font-size: 40px; /* Font Awesome icons use font-size for sizing */
+  color: var(--color-itinerary-border); /* Light golden color for itinerary icons */
+  margin-bottom: 0.5rem;
+}
+
+.itinerary-event h3 {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: var(--color-text-medium);
+  margin-bottom: 0.25rem;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.itinerary-event p {
+  font-size: 1em;
+  color: var(--color-text-light);
+  margin-bottom: 0;
+}
+
+.itinerary-separator {
+  width: 50px; /* Length of the separator line */
+  border: none;
+  border-top: 1px solid var(--color-itinerary-border); /* Color of the separator line */
+  margin: 1rem 0; /* Space around the separator */
+}
+
+/* Quote Section */
+.quote-section {
+  width: 100%;
+  padding: 5rem 1rem;
+  background-color: var(--color-primary-bg);
+  text-align: center;
+}
+
+.quote-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quote-line {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.quote-line hr {
+  flex-grow: 1;
+  border: none;
+  border-top: 1px solid rgba(150, 150, 150, 0.5); /* Darker gray for lines */
+  position: absolute;
+  width: 100%;
+}
+
+.quote-line span {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-primary-bg);
+  padding: 0 1rem;
+}
+
+.quote-text {
+  font-size: 1.25em;
+  font-weight: 300;
+  color: var(--color-text-medium);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  font-family: "Cormorant Garamond", serif;
+}
+
+/* Dress Code Section */
+.dress-code-section {
+  width: 100%;
+  padding: 4rem 1rem;
+  background-color: var(--color-white);
+  text-align: center;
+}
+
+.dress-code-section h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--color-text-medium);
+  margin-bottom: 0.5rem;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.dress-code-section p {
+  font-size: 1.1em;
+  color: var(--color-text-light);
+  margin-bottom: 1.5rem;
+}
+
+/* Honeymoon Section */
+.honeymoon-section {
+  width: 100%;
+  padding: 4rem 1rem;
+  background-color: var(--color-primary-bg);
+  text-align: center;
+}
+
+.honeymoon-icon-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.honeymoon-section h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--color-text-medium);
+  margin-bottom: 0.5rem;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.honeymoon-text {
+  font-size: 1.1em;
+  color: var(--color-text-light);
+  max-width: 500px;
+  margin: 0 auto 1.5rem auto;
+}
+
+/* Image Sections */
+.image-section {
+  width: 100%;
+  height: 500px; /* Fixed height for images */
+  overflow: hidden;
+}
+
+.full-width-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* RSVP Form Section */
+.rsvp-form-section {
+  width: 100%;
+  padding: 4rem 1rem;
+  background-color: var(--color-white);
+  text-align: center;
+}
+
+.rsvp-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rsvp-form-section h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--color-text-medium);
+  margin-bottom: 0.5rem;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.rsvp-subtitle {
+  font-size: 1.1em;
+  color: var(--color-text-light);
+  margin-bottom: 1.5rem;
+}
+
+.rsvp-value-button {
+  margin-bottom: 2rem;
+}
+
+.rsvp-form-section form {
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-medium);
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--color-gray-border);
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1em;
+  color: var(--color-text-dark);
+  background-color: var(--color-form-bg);
+  font-family: "Lato", sans-serif;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-group input[type="text"]::placeholder,
+.form-group textarea::placeholder {
+  color: #aaa;
+}
+
+.guest-fields {
+  background-color: var(--color-form-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #eee;
+}
+
+.guest-fields h3 {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: var(--color-text-medium);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-family: "Cormorant Garamond", serif;
+}
+
+/* Footer Section */
+.footer-section {
+  width: 100%;
+  padding: 3rem 1rem;
+  background-color: var(--color-primary-bg);
+  text-align: center;
+}
+
+.footer-logo {
+  font-size: 1.25em;
+  font-family: "Cormorant Garamond", serif;
+  color: var(--color-text-medium);
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.copyright {
+  font-size: 0.875em;
+  color: var(--color-text-light);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+  display: flex; /* Usamos flexbox para centrar */
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* ¡Aumentado para asegurar que esté encima de todo! */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.visible {
+  opacity: 1 !important; /* Forzamos la opacidad */
+  visibility: visible !important; /* Forzamos la visibilidad */
+  display: flex !important; /* Forzamos el display flex */
+}
+
+.modal-content {
+  background-color: var(--color-modal-content-bg); /* Beige claro del modal */
+  padding: 2rem;
+  border-radius: 8px;
+  position: relative;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--color-modal-border); /* Borde blanco */
+  text-align: center;
+  box-sizing: border-box;
+  transform: translateY(-20px); /* Initial state for animation */
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal-overlay.visible .modal-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-text-medium);
+  transition: color 0.3s ease;
+}
+
+.modal-close-button:hover {
+  color: var(--color-text-dark);
+}
+
+.modal-close-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.modal-body {
+  padding-top: 1rem;
+}
+
+.modal-icon {
+  margin-bottom: 1.5rem;
+}
+
+/* Ensure Font Awesome icons in modal are sized correctly */
+.modal-icon .fa-solid {
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+  color: var(--color-text-medium);
+}
+
+.modal-icon .fa-solid.fa-heart {
+  /* Specific style for the heart in the modal */
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+}
+
+.modal-body h2 {
+  font-size: 1.8em;
+  margin-bottom: 1rem;
+  color: var(--color-text-medium);
+}
+
+.modal-description {
+  font-size: 1em;
+  color: var(--color-text-light);
+  margin-bottom: 1.5rem;
+}
+
+.account-info {
+  margin-bottom: 1.5rem;
+}
+
+.account-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--color-text-medium);
+  margin-bottom: 0.5rem;
+}
+
+.account-alias {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--color-text-dark);
+}
+
+.modal-thanks {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: var(--color-text-medium);
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3.5em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h3 {
+    font-size: 1.6em;
+  }
+
+  .names h1 {
+    font-size: 3.5rem;
+  }
+
+  .countdown-outside-section .countdown-item span:first-child {
+    font-size: 4.5rem;
+  }
+  .countdown-outside-section .countdown-item span:last-child {
+    font-size: 0.85rem;
+  }
+  .countdown-outside-section .countdown-separator {
+    font-size: 4.5rem;
+  }
+
+  .carousel-images {
+    height: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 4.5em;
+  }
+  h2 {
+    font-size: 2.2em;
+  }
+  h3 {
+    font-size: 1.8em;
+  }
+
+  .names h1 {
+    font-size: 4.5rem;
+  }
+
+  .countdown-outside-section .countdown-item span:first-child {
+    font-size: 5rem;
+  }
+  .countdown-outside-section .countdown-item span:last-child {
+    font-size: 0.9rem;
+  }
+  .countdown-outside-section .countdown-separator {
+    font-size: 5rem;
+  }
+
+  .carousel-images {
+    height: 600px;
+  }
+}
