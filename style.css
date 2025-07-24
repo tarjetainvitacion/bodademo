@@ -224,21 +224,21 @@ a {
 }
 
 .countdown-title-outside {
-  font-size: 2.2em;
+  font-size: clamp(1.5rem, 6vw, 2.2rem); /* Responsive title */
   font-weight: 300;
   color: var(--color-text-medium); /* Color de texto oscuro */
   font-family: "Cormorant Garamond", serif;
 }
 
 .countdown-timer-outside .countdown-item span:first-child {
-  font-size: 10vw; /* Usa vw para que se adapte al ancho del viewport */
+  font-size: clamp(2.5rem, 10vw, 5rem); /* Responsive numbers */
   font-weight: 300;
   color: var(--color-text-dark); /* Color de texto oscuro */
   font-family: "Lato", sans-serif;
 }
 
 .countdown-timer-outside .countdown-item span:last-child {
-  font-size: 2.5vw; /* Usa vw para que se adapte al ancho del viewport */
+  font-size: clamp(0.6rem, 2.5vw, 0.9rem); /* Responsive labels */
   text-transform: uppercase;
   color: var(--color-text-light); /* Color de texto más claro */
   margin-top: 0.25rem;
@@ -246,35 +246,10 @@ a {
 }
 
 .countdown-timer-outside .countdown-separator {
-  font-size: 10vw; /* Usa vw para que se adapte al ancho del viewport */
+  font-size: clamp(2.5rem, 10vw, 5rem); /* Responsive separator */
   font-weight: 300;
   color: var(--color-text-dark); /* Color de texto oscuro */
   font-family: "Lato", sans-serif;
-}
-
-/* Media queries para el contador para evitar que sea demasiado grande en pantallas muy anchas */
-@media (min-width: 768px) {
-  .countdown-timer-outside .countdown-item span:first-child {
-    font-size: 4.5rem; /* Tamaño fijo para tablets */
-  }
-  .countdown-timer-outside .countdown-item span:last-child {
-    font-size: 0.85rem;
-  }
-  .countdown-timer-outside .countdown-separator {
-    font-size: 4.5rem; /* Tamaño fijo para tablets */
-  }
-}
-
-@media (min-width: 1024px) {
-  .countdown-timer-outside .countdown-item span:first-child {
-    font-size: 5rem; /* Tamaño fijo para escritorios */
-  }
-  .countdown-timer-outside .countdown-item span:last-child {
-    font-size: 0.9rem;
-  }
-  .countdown-timer-outside .countdown-separator {
-    font-size: 5rem; /* Tamaño fijo para escritorios */
-  }
 }
 
 /* Image Carousel Section */
